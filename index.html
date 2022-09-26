@@ -1,0 +1,259 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THROW DICE by Shashank Pandey fw18_0105</title>
+
+    <style>
+        *{
+            border-radius: 20px;
+            font-size: larger;
+            font-family: sans-serif;
+            font-weight: bold;
+            
+            
+        }
+
+
+        #winner{
+            border: 2px solid black;
+            height: 100px;
+            width: 300px;
+            margin: auto;
+            margin-bottom: 20px;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+        #members{
+            /* border: 1px solid red; */
+            width: 80%;
+            height: 200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(1,1fr);
+            gap: 20px;
+        }
+        #member-1{
+            border: 2px solid black;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+        #member-2{
+            border: 2px solid black;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+        #member-3{
+            border: 2px solid black;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+        #roll{
+            border: 2px solid black;
+            height: 100px;
+            width: 100px;
+            margin: auto;
+            margin-top: 20px;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            
+        }
+
+
+
+    </style>
+
+
+
+</head>
+<body>
+    
+
+<div id="winner">Winner name will be displayed here</div>
+
+<div id="members">
+
+    <div id="member-1"></div>
+    <div id="member-2"></div>
+    <div id="member-3"></div>
+
+</div>
+
+<!-- <div id="roll">ROLL THE DICE</div> -->
+<button id="roll">ROLL THE DICE</button>
+
+
+<p>Press F5 to reset </p>
+
+
+
+</body>
+</html>
+
+
+<script>
+
+const roll = document.querySelector('#roll');
+roll.addEventListener('click',function(event){
+    var arr=[]
+    var win=['Member A','Member B','Member C']
+    var mem1=Math.floor(Math.random() * 6) + 1
+    var mem2=Math.floor(Math.random() * 6) + 1
+    var mem3=Math.floor(Math.random() * 6) + 1
+
+    // if(mem1 != mem2 && mem1 != mem3 && mem2 != mem3 )
+    {document.querySelector('#member-1').innerText= mem1
+
+    
+    document.querySelector('#member-2').innerText= mem2
+
+    
+    document.querySelector('#member-3').innerText= mem3
+    arr.push(mem1)
+    arr.push(mem2)
+    arr.push(mem3)
+    var max=Math.max(...arr)
+    var winner=win[arr.indexOf(max)]
+    document.querySelector('#winner').innerText= winner}
+
+    if(mem1>mem2&&mem1>mem3&&mem2>mem3)
+    {
+        document.querySelector('#member-1').style.backgroundColor='green'
+        document.querySelector('#member-2').style.backgroundColor='yellow'
+        document.querySelector('#member-3').style.backgroundColor='red'
+
+    }
+    else if(mem1>mem2&&mem1>mem3&&mem3>mem2)
+    {
+        document.querySelector('#member-1').style.backgroundColor='green'
+        document.querySelector('#member-3').style.backgroundColor='yellow'
+        document.querySelector('#member-2').style.backgroundColor='red'
+
+    }
+    else if(mem2>mem1&&mem2>mem3&&mem1>mem3)
+    {
+        document.querySelector('#member-2').style.backgroundColor='green'
+        document.querySelector('#member-1').style.backgroundColor='yellow'
+        document.querySelector('#member-3').style.backgroundColor='red'
+
+    }
+    else if(mem2>mem1&&mem2>mem3&&mem3>mem1)
+    {
+        document.querySelector('#member-2').style.backgroundColor='green'
+        document.querySelector('#member-3').style.backgroundColor='yellow'
+        document.querySelector('#member-1').style.backgroundColor='red'
+
+    }
+    else if(mem3>mem1&&mem3>mem2&&mem1>mem2)
+    {
+        document.querySelector('#member-3').style.backgroundColor='green'
+        document.querySelector('#member-1').style.backgroundColor='yellow'
+        document.querySelector('#member-2').style.backgroundColor='red'
+
+    }
+    else if(mem3>mem1&&mem3>mem2&&mem2>mem1)
+    {
+        document.querySelector('#member-3').style.backgroundColor='green'
+        document.querySelector('#member-2').style.backgroundColor='yellow'
+        document.querySelector('#member-1').style.backgroundColor='red'
+
+    }
+    else if(mem3>mem1&&mem3>mem2&&mem2===mem1)
+    {
+        document.querySelector('#member-3').style.backgroundColor='green'
+        document.querySelector('#member-2').style.backgroundColor='blue'
+        document.querySelector('#member-1').style.backgroundColor='blue'
+        document.querySelector('#winner').innerText= winner
+
+    }
+    else if(mem1>mem3&&mem1>mem2&&mem2===mem3)
+    {
+        document.querySelector('#member-3').style.backgroundColor='blue'
+        document.querySelector('#member-2').style.backgroundColor='blue'
+        document.querySelector('#member-1').style.backgroundColor='green'
+        document.querySelector('#winner').innerText= winner
+
+    }
+    else if(mem2>mem3&&mem2>mem1&&mem1===mem3)
+    {
+        document.querySelector('#member-3').style.backgroundColor='blue'
+        document.querySelector('#member-1').style.backgroundColor='blue'
+        document.querySelector('#member-2').style.backgroundColor='green'
+        document.querySelector('#winner').innerText= winner
+
+    }
+    else if(mem1>mem2&&mem1===mem3)
+    {
+        document.querySelector('#member-3').style.backgroundColor='blue'
+        document.querySelector('#member-1').style.backgroundColor='blue'
+        document.querySelector('#member-2').style.backgroundColor='red'
+        document.querySelector('#winner').innerText= 'Draw'
+
+    }
+    else if(mem2>mem1&&mem2===mem3)
+    {
+        document.querySelector('#member-3').style.backgroundColor='blue'
+        document.querySelector('#member-2').style.backgroundColor='blue'
+        document.querySelector('#member-1').style.backgroundColor='red'
+        document.querySelector('#winner').innerText= 'Draw'
+
+    }
+    else if(mem3>mem1&&mem2===mem3)
+    {
+        document.querySelector('#member-3').style.backgroundColor='blue'
+        document.querySelector('#member-2').style.backgroundColor='blue'
+        document.querySelector('#member-1').style.backgroundColor='red'
+        document.querySelector('#winner').innerText= 'Draw'
+    }
+    else if(mem3===mem1&&mem2===mem3)
+    {
+        document.querySelector('#member-3').style.backgroundColor='blue'
+        document.querySelector('#member-2').style.backgroundColor='blue'
+        document.querySelector('#member-1').style.backgroundColor='blue'
+        document.querySelector('#winner').innerText= 'Draw'
+
+    }
+    else if(mem3>mem2&&mem1===mem3)
+    {
+        document.querySelector('#member-3').style.backgroundColor='blue'
+        document.querySelector('#member-2').style.backgroundColor='blue'
+        document.querySelector('#member-1').style.backgroundColor='red'
+        document.querySelector('#winner').innerText= 'Draw'
+    }
+    else if(mem1>mem3&&mem1===mem2)
+    {
+        document.querySelector('#member-3').style.backgroundColor='red'
+        document.querySelector('#member-2').style.backgroundColor='blue'
+        document.querySelector('#member-1').style.backgroundColor='blue'
+        document.querySelector('#winner').innerText= 'Draw'
+    }
+    
+
+
+
+})
+
+
+
+</script>
